@@ -1,5 +1,5 @@
 {
-  "name": "au_voiceman",
+  "name": "mutemgr",
   "version": "0.1.0",
   "description": "Discord VC mute toggler and voice manager for Among US",
   "main": "index.js",
