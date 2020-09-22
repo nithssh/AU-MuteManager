@@ -1,2 +1,2 @@
-const bot = require("./bot");
-bot.login(require('./token'));
+const bot = require("./src/bot");
+bot.login(require('./src/token'));
