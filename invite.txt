@@ -1,0 +1,1 @@
+admin priv: https://discord.com/api/oauth2/authorize?client_id=740912127275171891&permissions=8&scope=bot
