@@ -1,22 +1,32 @@
-// Start the bot
 const bot = require("./src/bot");
-bot.login(require('./src/token'));
+const child_exec = require("child_process").exec;
+const recognizeText = require("./src/ocr");
 
-// State detection routine
-const exec = require("child_process").exec;
-const pythonProcess = exec('py ./src/screengrab/screen_capture.py');
+// start the bot
+bot.login(require("./src/token"));
+// the image capture script
+const pythonProcess = child_exec("py ./src/screen_capture.py");
+//
+setInterval(updateState, 5000);
 
-pythonProcess.stdout.on('data', (data) => {
-  if (data == "done_capture\r\n") {
-    const recognizer = require("./src/ocr/ocr");
-    recognizer().then((str) => {
-      if (str.includes("body")) {
-        console.log("BODY REPORTED!")
-        // if the hook is engaged, unmute all
-      }
-    });
-  }
-  else {
-    console.log(data);
-  }
-});
+function updateState() {
+  console.log("starting update");
+  pythonProcess.stdout.on("data", (data) => {
+    if (data == "done_capture\r\n") {
+      // OCR the screen capture
+      recognizeText()
+        .then((str) => {
+          if (str.includes("body")) {
+            console.log("BODY REPORTED!");
+          } else {
+            console.log(`Detected text: ${str}`);
+          }
+        })
+        .catch((err) => {
+          throw err;
+        });
+    } else {
+      console.log(data);
+    }
+  });
+}
