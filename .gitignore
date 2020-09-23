@@ -1,2 +1,12 @@
+# Secrets
 token.js
+
+# Nodejs stuff
 node_modules/
+
+# VS Code user configs
+.vscode/
+
+# Image files
+*.png
+*.jpg
