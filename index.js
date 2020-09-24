@@ -21,12 +21,14 @@ bot.on("message", (msg) => {
       // promise rejections are depreciated
 
       hookMessage = msg;
+      msg.react("👌");
       console.log(`Hooked on ${msg.member.displayName}`);
     } catch (e) {
       msg.reply("connect to a voice channel before issuing commands.");
     }
   } else if (msg.content == "$end-hook") {
     hookMessage = null;
+    msg.react("👍");
     console.log(`unhooked ${msg.member.displayName}`);
   }
 });
@@ -53,7 +55,7 @@ function updateState() {
         } else if (str.toLowerCase().includes("energenc")) {
           // the handdrawn style of emergency ui doesn't get read properly,
           // this is fairly consistent in my testing.
-          console.log(chalk.red("-------EmergenecyCalled-------"));
+          console.log(chalk.red("-------Emergency Called-------"));
           if (hookMessage != null) {
             unmuteAll(hookMessage);
             // failsafe in case the vote end screen is not read properly
@@ -62,10 +64,10 @@ function updateState() {
             }, DISCUSSION_INTERVAL * 1000);
           }
         } else if (
-          str.toLowerCase().includes("no one was ejected") ||
+          str.toLowerCase().includes("was ejected") ||
           str.toLowerCase().includes("the impostor")
         ) {
-          console.log(chalk.blue("--Discussion/Voting Ended--"));
+          console.log(chalk.greenBright("--Discussion/Voting Ended--"));
           if (hookMessage != null) {
             muteAll(hookMessage);
           }
