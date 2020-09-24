@@ -61,4 +61,4 @@ function getConnectedMembers(msg) {
   }
 }
 
-module.exports = {client, unmuteAll};
+module.exports = {client, unmuteAll, muteAll};
