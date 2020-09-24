@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/dem1se/auvoiceman#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "discord.js": "^12.3.1",
     "python-shell": "^2.0.2",
     "tesseract.js": "^2.1.3"

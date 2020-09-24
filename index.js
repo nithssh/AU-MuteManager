@@ -2,8 +2,9 @@ const bot = require("./src/bot").client;
 const { unmuteAll, muteAll } = require("./src/bot");
 const doOCR = require("./src/ocr");
 const { PythonShell } = require('python-shell');
+const chalk = require("chalk");
 
-const DISCUSSION_INTERVAL = 75 // secs
+const DISCUSSION_INTERVAL = 135 // secs
 var hookMessage = null;
 // const child_exec = require("child_process").exec;
 // const pythonProcess = child_exec("py ./src/screen_capture.py");
@@ -32,17 +33,17 @@ bot.on('message', msg => {
 });
 
 
-// screencap and ocr every 2 secs
-setInterval(updateState, 2000);
+// screencap and ocr every 1 secs
+setInterval(updateState, 1000);
 
 function updateState() {
-  console.log("======Checking======");
+  console.log(chalk.gray("----Checking----"));
   PythonShell.run('./src/screen_capture.py', null, function (err) {
     if (err) throw err;
     doOCR()
       .then((str) => {
         if (str.toLowerCase().includes("body")) {
-          console.log("-------BODY REPORTED!-------");
+          console.log(chalk.red("-------BODY REPORTED!-------"));
           if (hookMessage != null) {
             unmuteAll(hookMessage);
             setTimeout(
@@ -51,7 +52,7 @@ function updateState() {
             )
           }
         } else {
-          // console.log(`Detected text: ${str}`);
+          console.log(`Detected text: ${chalk.yellow(str)}`);
         }
       })
       .catch((err) => {
