@@ -49,8 +49,18 @@ function updateState() {
             setTimeout(
               function () { muteAll(hookMessage) }, 
               (DISCUSSION_INTERVAL * 1000)
-            )
+            );
           }
+        } else if (str.toLowerCase().includes("energenc")) {
+          // the handdrawn style of emergency ui doesn't get read properly
+          console.log(chalk.red("-------EmergenecyCalled-------"));
+          if (hookMessage != null) {
+            unmuteAll(hookMessage);
+            setTimeout(
+              function () { muteAll(hookMessage) }, 
+              (DISCUSSION_INTERVAL * 1000)
+            );
+          } 
         } else {
           console.log(`Detected text: ${chalk.yellow(str)}`);
         }
