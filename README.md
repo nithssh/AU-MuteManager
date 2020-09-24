@@ -18,7 +18,17 @@ Install the node package dependencies with
 Also a `token.js` file is required in the src folder that `module.exports` the bot's token that you've generated [here](https://discord.com/developers/applications)
 
 ## Running
+Invite the bot to your server with the "mute members" and "view channels" permissions. Generate the invite like at the discord developer portal > your application > oauth2.
+
 `npm start` in the root of the clone directory will start the application assuming every dependency is met.
+
+## Commands
+
+`$mute` -- to manually mute everyone in the connected channel.
+`$unmute` -- to manually unmute everyone in the connected channel.
+`$toggle` -- to manually toggle the mute status of everyone in the channel.
+`$start-hook` -- to auto mute and unmute based on your screencap.
+`$end-hook` -- to stop auto modifying the mute state of everyone in the channel.
 
 ### Credits
 This project was made my [dem1se](https://github.com/dem1se) over the course of two nights.

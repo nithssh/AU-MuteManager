@@ -27,7 +27,7 @@ bot.on('message', msg => {
   }
   else if (msg.content == "$end-hook") {
     hookMessage = null;
-    console.log(`unhooked ${hookMessage.author.username}`)
+    console.log(`unhooked ${msg.member.displayName}`)
   }
 });
 
