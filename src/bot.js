@@ -2,7 +2,7 @@ const discord = require('discord.js')
 const client = new discord.Client();
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag} \nReady`);
+  console.log(`Logged in as ${client.user.tag}`);
 });
 
 client.on('message', msg => {
@@ -61,4 +61,4 @@ function getConnectedMembers(msg) {
   }
 }
 
-module.exports = client;
+module.exports = {client, unmuteAll};
