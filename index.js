@@ -16,7 +16,7 @@ bot.on('message', msg => {
   }
   else if (msg.content == "$end-hook") {
     hookMessage = null;
-    console.log(`unhooked ${hookMessage.author}`)
+    console.log(`unhooked ${hookMessage.author.username}`)
   }
 });
 
@@ -31,7 +31,7 @@ function updateState() {
     doOCR()
       .then((str) => {
         if (str.toLowerCase().includes("body")) {
-          console.log("BODY REPORTED!");
+          console.log("-------BODY REPORTED!-------");
           if (hookMessage != null) {
             unmuteAll(hookMessage);
           }
