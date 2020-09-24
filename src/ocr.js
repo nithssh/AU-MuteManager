@@ -1,9 +1,10 @@
-const { createWorker, createScheduler } = require('tesseract.js');
+const { createWorker } = require('tesseract.js');
 
-const worker = createWorker({
-  langPath: "./data/", 
-  // logger: m => console.info(m),
-});
+//#region createScherduler Code
+// const worker = createWorker({
+//   langPath: "./data/", 
+// logger: m => console.info(m),
+// });
 // const scheduler = createScheduler();
 
 // (async () => {
@@ -25,10 +26,11 @@ const worker = createWorker({
 //   // console.log(text);
 //   return text;
 // }
-
+//#endregion
 
 async function doOCR() {
   // const start = new Date();
+  const worker = createWorker({ langPath: "./data/" });
   await worker.load();
   await worker.loadLanguage('eng');
   await worker.initialize('eng');

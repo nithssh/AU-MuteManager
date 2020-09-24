@@ -8,10 +8,8 @@ import time, sys
 
 x = 550
 y = 430
-off_x = 820
-off_y = 225
+width = 820
+height = 225
 outname = "./data/screencap.png"
-img = ImageGrab.grab(bbox=(x, y, x + off_x, y + off_y))
+img = ImageGrab.grab(bbox=(x, y, x + width, y + height))
 img.save(outname)
-print("done_capture")
-sys.stdout.flush()
