@@ -4,10 +4,8 @@ const doOCR = require("./src/ocr");
 const { PythonShell } = require("python-shell");
 const chalk = require("chalk");
 
-const DISCUSSION_INTERVAL = 135; // secs
+const DISCUSSION_INTERVAL = 140; // secs
 var hookMessage = null;
-// const child_exec = require("child_process").exec;
-// const pythonProcess = child_exec("py ./src/screen_capture.py");
 
 // start the bot
 bot.login(require("./src/token"));
@@ -21,6 +19,7 @@ bot.on("message", (msg) => {
       // promise rejections are depreciated
 
       hookMessage = msg;
+      muteAll(msg);
       msg.react("👌");
       console.log(`Hooked on ${msg.member.displayName}`);
     } catch (e) {
@@ -28,6 +27,7 @@ bot.on("message", (msg) => {
     }
   } else if (msg.content == "$end-hook") {
     hookMessage = null;
+    unmuteAll(msg);
     msg.react("👍");
     console.log(`unhooked ${msg.member.displayName}`);
   }
