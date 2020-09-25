@@ -66,10 +66,6 @@ function updateState() {
           console.log(chalk.red("-------BODY REPORTED!-------"));
           if (hookMessage != null) {
             unmuteAll(hookMessage);
-            // failsafe in case the vote end screen is not read properly
-            setTimeout(function () {
-              muteAll(hookMessage);
-            }, DISCUSSION_INTERVAL * 1000);
           }
         } else if (str.toLowerCase().includes("energenc")) {
           // the handdrawn style of emergency ui doesn't get read properly,
@@ -77,10 +73,6 @@ function updateState() {
           console.log(chalk.red("-------Emergency Called-------"));
           if (hookMessage != null) {
             unmuteAll(hookMessage);
-            // failsafe in case the vote end screen is not read properly
-            setTimeout(function () {
-              muteAll(hookMessage);
-            }, DISCUSSION_INTERVAL * 1000);
           }
         } else if (
           str.toLowerCase().includes("was ejected") ||

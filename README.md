@@ -1,10 +1,10 @@
 # MuteManager - AmongUs
-This is a Discord Bot / utility that OCR reads a center part of your screen to detect whether a dead body has been reported or if a emergency meeting has been called and unmutes everyone in the server automatically, shortly muting every back after the voting ends (based on OCR with timers for fallback).
+This is a Discord Bot / utility that OCR reads a center part of your screen to detect whether a dead body has been reported or if a emergency meeting has been called and unmutes everyone in the server automatically, shortly muting every back after the voting ends (based on OCR).
 
 The Bot is written with discord.js, the OCR is done with tesseract.js, The screencapture is done with python's Pillow module. The project uses python-shell to have an easier time running the screencapture script in-sync, instead of just using the child_process node module.
 
 ## Installation
-Requires the latest version of node and python3 installed
+Requires the latest version of node and python3 installed.
 The project was developed with node 12.18 and python 3.8.5
 
 Clone the repo and extract the folder
