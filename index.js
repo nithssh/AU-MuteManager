@@ -1,10 +1,9 @@
+const chalk = require("chalk");
 const bot = require("./src/bot").client;
 const { unmuteAll, muteAll } = require("./src/bot");
 const doOCR = require("./src/ocr");
 const { PythonShell } = require("python-shell");
-const chalk = require("chalk");
 
-const DISCUSSION_INTERVAL = 140; // secs
 var hookMessage = null;
 var updateRoutine;
 
@@ -24,7 +23,7 @@ bot.on("message", (msg) => {
       updateRoutine = setInterval(updateState, 1000);
 
       muteAll(msg);
-      msg.react("👌");
+      msg.react("👍");
       console.log(`Succesfully hooked on ${msg.member.displayName}`);
     } catch (e) {
       msg.reply("connect to a voice channel before issuing commands.");
