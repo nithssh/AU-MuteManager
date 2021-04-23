@@ -1,3 +1,6 @@
+# Archived
+***as this is a dumb solutions and there are better one with more time put into them. The OCR part was not reliably managed, and the dead were never considered when unmuting. Simple problems, but not worth fixing considering better solutions already exist.*** and I never liked the game anyways :P
+
 # MuteManager - AmongUs
 This is a Discord Bot / utility that OCR reads a center part of your screen to detect whether:- 
 - a dead body has been reported 
